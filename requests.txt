@@ -1,0 +1,1 @@
+curl -v -H "Authorization: Bearer G9Cd7g1xw4P58EO9CRUZZareRwO5kLEt24Pq5N0Q"  http://localhost/accounts/milkyman
