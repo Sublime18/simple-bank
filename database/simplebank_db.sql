@@ -32,9 +32,9 @@ CREATE TABLE `account` (
 /*Data for the table `account` */
 
 insert  into `account`(`username`,`token`,`full_name`,`balance`) values 
-('jaksem','aflBEUbZ3CBVhPNJmb3Gkbg3QUU7Fu2j8jFGlg2p','Jaka Sembung',211.10),
+('jaksem','aflBEUbZ3CBVhPNJmb3Gkbg3QUU7Fu2j8jFGlg2p','Jaka Sembung',206.70),
 ('milkyman','G9Cd7g1xw4P58EO9CRUZZareRwO5kLEt24Pq5N0Q','Milkyman',100.00),
-('wirosableng','Q7YHVDU5BQUkAfax1fcTEEGtu1O4L4hM1idBKKtF','Wiro Sableng',-11.10);
+('wirosableng','Q7YHVDU5BQUkAfax1fcTEEGtu1O4L4hM1idBKKtF','Wiro Sableng',-6.70);
 
 /*Table structure for table `transaction` */
 
@@ -45,6 +45,7 @@ CREATE TABLE `transaction` (
   `sender` char(16) NOT NULL,
   `recipient` char(16) NOT NULL,
   `amount` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `notes` varchar(128) DEFAULT NULL,
   `status` char(20) NOT NULL DEFAULT 'success',
   `issued_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -56,19 +57,13 @@ CREATE TABLE `transaction` (
 
 /*Data for the table `transaction` */
 
-insert  into `transaction`(`id`,`sender`,`recipient`,`amount`,`status`,`issued_at`) values 
-('0H9a5qlp4PBtWXHZLijKE3fpE9WDimU91faVTtCj','wirosableng','jaksem',10.10,'success','2019-12-13 15:58:28'),
-('5RfYqvK1aq2FnOtyz5hFbiAhxkZCsuzz9Xn50hyY','wirosableng','jaksem',10.10,'success','2019-12-13 13:33:37'),
-('66SEWs4BoiIzxJ78GQlv25jXR0ZMdhc7ndNLsbQL','jaksem','wirosableng',10.10,'success','2019-12-13 13:35:03'),
-('ab7A35V1pRfjtJUP4A0sSs5hdfHYYoT38xReSSv1','wirosableng','jaksem',10.10,'success','2019-12-13 12:08:01'),
-('EH77SWQNktBbRDa71qvCk11KBx3BeXlOQ48UWYji','jaksem','wirosableng',10.10,'success','2019-12-13 13:35:20'),
-('h3rsImhTdTLE743peBBaZNM5s8b8BiKwFY0vw49o','wirosableng','jaksem',10.10,'failed','2019-12-13 16:07:02'),
-('HrxO0LEcZpGLbl6k5gbi1maCI5u1If4zQbnsM9kI','wirosableng','jaksem',10.10,'success','2019-12-13 12:45:07'),
-('U54529RFNbNBQauuE8Em4jMV1J64zubZcBKMB5PQ','jaksem','jaksem',10.10,'success','2019-12-13 14:46:24'),
-('WIJhVYTmh8tq4miTG6n6RNO1atcNB3gjxwagxVEX','wirosableng','jaksem',10.10,'success','2019-12-13 13:35:46'),
-('Wj45pQnvpjMeUzEb2Gz6kA6VtpM8UenskxIXsxkT','wirosableng','jaksem',10.10,'success','2019-12-13 12:04:30'),
-('XFh80V6Ww1PvqKxB0spH2LA5Rxlp7AgPu8G0OzJ6','wirosableng','jaksem',10.10,'success','2019-12-13 13:33:59'),
-('zvst1U6oSeOkepHkDnRR7nGFWkvdwsdut1sKv9Rt','wirosableng','jaksem',10.10,'success','2019-12-13 13:33:19');
+insert  into `transaction`(`id`,`sender`,`recipient`,`amount`,`notes`,`status`,`issued_at`) values 
+('ab7A35V1pRfjtJUP4A0sSs5hdfHYYoT38xReSSv1','wirosableng','jaksem',10.00,'Ganti belanja di kantin','success','2019-12-13 12:08:01'),
+('EH77SWQNktBbRDa71qvCk11KBx3BeXlOQ48UWYji','jaksem','wirosableng',5.00,'Beli kacang asin','success','2019-12-13 13:35:20'),
+('h3rsImhTdTLE743peBBaZNM5s8b8BiKwFY0vw49o','wirosableng','jaksem',7.50,'Voucher pulsa','failed','2019-12-13 16:07:02'),
+('HrxO0LEcZpGLbl6k5gbi1maCI5u1If4zQbnsM9kI','wirosableng','jaksem',2.00,NULL,'success','2019-12-13 12:45:07'),
+('WIJhVYTmh8tq4miTG6n6RNO1atcNB3gjxwagxVEX','wirosableng','milkyman',3.50,'Ganti uang beli kertas A4','success','2019-12-13 13:35:46'),
+('XFh80V6Ww1PvqKxB0spH2LA5Rxlp7AgPu8G0OzJ6','milkyman','jaksem',4.20,NULL,'success','2019-12-13 13:33:59');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
